@@ -10,7 +10,7 @@ runs:
   using: "composite"
   steps:
 
-  - run: From action
+  - run: echo "From action"
     shell: bash
   - run: echo ${{ inputs.str }}
     shell: bash
