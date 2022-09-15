@@ -8,6 +8,7 @@ on:
 
 env:
   str: ${{ github.event.inputs.str }}
+  str2: "${{ github.event.inputs.str }}"
 
 jobs:
   commands:
@@ -21,3 +22,5 @@ jobs:
         run: echo "$str"
       - name: print str
         run: echo "${{ env.str }}"
+      - name: print str2
+        run: echo "${{ env.str2 }}"
