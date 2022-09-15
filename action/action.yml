@@ -1,0 +1,16 @@
+name: 'Dockerfile linter'
+description: 'Lint dockerfile issues via hadolint'
+
+inputs:
+  str:
+    description: "some"
+    required: true
+
+runs:
+  using: "composite"
+  steps:
+
+  - run: From action
+    shell: bash
+  - run: echo ${{ inputs.str }}
+    shell: bash
