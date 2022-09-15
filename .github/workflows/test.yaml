@@ -1,0 +1,23 @@
+on:
+  workflow_dispatch:
+    inputs:
+      str:
+        required: false
+        type: string
+        description: inject me
+
+env:
+  str: ${{ github.event.inputs.str }}
+
+jobs:
+  commands:
+    runs-on: ubuntu-latest
+    steps:
+      - name: print str
+        env:
+          TITLE: ${{ github.event.inputs.str }}
+        run: echo "$TITLE"
+      - name: print str
+        run: echo "$str"
+      - name: print str
+        run: echo "${{ env.str }}"
