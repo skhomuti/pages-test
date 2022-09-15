@@ -24,6 +24,7 @@ jobs:
         run: echo "${{ env.str }}"
       - name: print str2
         run: echo "${{ env.str2 }}"
+      - uses: actions/checkout@v2
       - uses: ./action
         with:
           str: ${{ env.str }}
