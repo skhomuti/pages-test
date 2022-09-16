@@ -1,0 +1,19 @@
+on:
+  workflow_dispatch:
+    inputs:
+      str:
+        required: false
+        type: string
+        description: echo${IFS}hello;env
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo ${{ inputs.str }}
+      - run: echo ${{ github.event.inputs.str }}
+
+      - name: escape untrusted input
+        env:
+          STR: ${{ github.event.inputs.str }}
+        run: echo $STR
